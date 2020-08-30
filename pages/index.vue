@@ -49,7 +49,7 @@ export default {
         email: this.email
       }
       console.log(form)
-      const response = await axios.post('http://127.0.0.1:3000/api/newsletter', qs.stringify(form), config )
+      const response = await axios.post('http://newslettertest.tk/api/newsletter', qs.stringify(form), config )
       console.log(response)
     }
   }
