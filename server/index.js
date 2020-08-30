@@ -1,9 +1,12 @@
 const express = require('express')
 const consola = require('consola')
 const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
+
+// Importando Mongoose y el modelo de la BD
+const mongoose = require('mongoose')
+const Customer = require('/models/newsletter.js')
 
 // Conexión con MongoDB
 
@@ -45,7 +48,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.post('/api/newsletter', (req, res) => {
-  console.log(req.body)
+  console.log(new Customer(req.body))
   res.status(200).send({message: 'se recibió el POST'})
   res.end();
 })
