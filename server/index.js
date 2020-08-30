@@ -6,7 +6,7 @@ const app = express()
 
 // Importando Mongoose y el modelo de la BD
 const mongoose = require('mongoose')
-const Customer = require('models/newsletter.js')
+const Customer = require('newsletter.js')
 
 // Conexión con MongoDB
 
