@@ -50,7 +50,8 @@ app.use(bodyParser.json())
 app.post('/api/newsletter', async (req, res) => {
   // console.log(new Customer(req.body))
   const customer = new Customer(req.body);
-  await customer.save();
+  const response = await customer.save();
+  console.log(response)
   res.status(200).send({message: '201: Customer stored'})
   res.end();
 })
