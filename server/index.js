@@ -47,8 +47,10 @@ start()
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-app.post('/api/newsletter', (req, res) => {
-  console.log(new Customer(req.body))
-  res.status(200).send({message: 'se recibió el POST'})
+app.post('/api/newsletter', async (req, res) => {
+  // console.log(new Customer(req.body))
+  const customer = new Customer(req.body);
+  await customer.save();
+  res.status(200).send({message: '201: Customer stored'})
   res.end();
 })
